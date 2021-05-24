@@ -457,3 +457,13 @@ function filter(arr ,cb) {
     console.log(multiplyByFive(20)); // 180
     console.log(multiplyByFive(5)); // 45
 */
+function multiplyBy(num) {
+  return function (num2) {
+    return num* num2;
+  }
+}
+let multiplyByFive =multiplyBy(5)
+multiplyByFive(10);
+
+let multiplyByNine =multiplyBy(9)
+multiplyByFive(10);
