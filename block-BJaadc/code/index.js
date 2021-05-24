@@ -31,6 +31,7 @@ let message = 'If you are still thinking the answer is no!';
 // Log the message variable, all in lowecase
 
 // Log the message variable, all in uppercase
+console.log(message.toUpperCase);
 
 // Replace the word "are" to "can't", store it in a new variable named `newMessage` and log it.
 
