@@ -7,19 +7,23 @@ fruits.pop();
 // Log the current length of fruits array
 console.log(fruits.length);
 // Remove the first element from fruits and log the value of fruits (use delete arr[0])
-fruits.shift();
+delete fruits[0]
 console.log(fruits);
 
 
 // Log the element on index 0 and 1
-console.log();
+console.log(fruits[0],fruits[1]);
 // If the element at 0 index is undefined and index 1 is 'Banana' shift all the values to one lower index (use shift method)
-
+fruits.shift();
 // Add a new element to the start ('Guava') and shift the index of all other to one higher value
 fruits.unshift("Guava");
 // Add a new element to the start ('Dragon Fruit') and shift the index of all other to one higher value
 fruits.unshift("Dragon Fruit");
 // Log true or false based on the value at index 0 and 1 is 'Dragon Fruit' and 'Guava' or not
+if(fruits[0]==='Dragon Fruit'&& fruits[1]==='Guava'){
+    console.log(true);
+}else{
+    console.log(false)};
 
 // Update the value of index 1 to `Pears`
 fruits.splice(1,0, 'Pears')
@@ -31,15 +35,20 @@ fruits.slice(5);
 // Create another array named moreFruits with values ['Berries', 'Melons']
 let moreFurits=['Berries', 'Melons']
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
- let allFruits=fruits.concat(moreFurits);
+  fruits=fruits.concat(moreFurits);
 // Log the name of all fruit in console
-console.log(allFruits);
+fruits.forEach((fruit)=>console.log(fruit));
 // Convert each fruit name to lowercase and log it
-allFruits.toLowercase
-console.log(allFruits);
+// fruits.forEach((fruit)=>console.log(fruits.toLowercase()));
 // Convert all fruits name into lowercase and store in new array named lowercaseFruits
+// let lowercaseFruits=fruits.map((fruit) =>
+// fruit.toLowercase());
 
 // Convert all fruits name into uppercase and store in new array named uppercaseFruits
+// let uppercaseFruits=fruits.map((fruit)=>
+// fruit.uppercase());
+
+
 
 let numbers = [1, 2, [3, 4]];
 let numbersTwo = [1, 2, [3, 4, [5, 6]]];
@@ -54,11 +63,11 @@ console.log(numbersTwo.flat(2));
 // Remove all sub-arrays to individual elements, log them and update the value of numbersThree to the new flat array.
 console.log(numbersThree.flat(Infinity)); 
 // Use forEach to log all the elements of numberThree array
-numbersThree.forEach(function(num){
+ numbersThree=numbersThree.forEach(function(num){
     console.log(num);
 });
 // Create a new variable named doubleNumbers that store the numberThree array (each element should be multiplied by 2). Use map
-let doubleNumbers=numbersThree.map(function(num){
+let doubleNumbers = numbersThree.map(function(num){
    return  num * 2
 });
 console.log(doubleNumbers);
@@ -73,16 +82,18 @@ let halfNumbers=numbersThree.map(function(num){
  });
  console.log(halfNumbers);
 // Create a new variable named oddNumbers that store all the odd numbers in numbersThree array
-
+let oddNumbers =numbersThree.filter((num)=>
+num%2 !==0);
 // Create a new variable named evenNumbers that store all the even numbers in numbersThree array
-
+let evenNumbers =numbersThree.filter((num)=>
+num%2 ===0);
 // Find the index of 10 in numbersThree array
-
+numbersThree.find((num)=>num ===10);
 // Reverse the values of numbersThree array
 console.log(numbersThree.reverse); 
 // Reverse the values of numbersTwo array
-
+console.log(numbersTwo.reverse); 
 // Join all fruits with '-', convert to uppercase and log it
- console.log(fruits.join("-")); 
+ console.log(fruits.join("-").toUppercase()); 
 // Join all fruits with '&', convert to lowercase and log it
-console.log(fruits.join("&"));
+console.log(fruits.join("&").toLowercase());
