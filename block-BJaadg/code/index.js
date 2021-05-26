@@ -13,11 +13,11 @@ let first ="is"
 /*
 2. Find the character at the index indexOfIs (Problem 1) in quote.
 */
-
+quote.charAt(indexOfIs)
 /*
 3. Log the message saying `The index of first is in quote is 7`
 */
-
+console.log(`The index of first is in quote is ${quote.charAt(indexOfIs)}`);
 /*
 4. Log the message for first 6 characters of quote like this.
   The character at index 0 is 'T'
@@ -37,15 +37,15 @@ console.log(quote.charAt(5));
 5. Using the variable from , to and quote variable dispaly this message
   "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark." (use concat method)
 */
- from =from.concat("Syrio Forel said There is only one thing we say to death: Not today to Arya Stark.")
- console.log(from);
- quote = quote.concat( "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark.")
-console.log(quote);
- to = to.concat( "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark.")
-console.log(to);
+let final = from.concat("said",quote, "to",to);
+console.log(final);
+ 
  /*
 6. Does from, to and quote ends with "rk". Check all three.
 */
+from.endsWith('rk');
+quote.endsWith('rk');
+to.endsWith('rk');
 
 /*
 7. Does quote includes the word "Only"
@@ -66,35 +66,42 @@ console.log(findWe);
 /*
 10. Split the quote into individual word and store it in a variable name quoteSplitted
 */
-  let quoteSplitted = quote
+  let quoteSplitted = quote.split("")
 /*
 11. Change the word "today" in quoteSplitted to "tomorrow" and join all the words to form a sentance.
 */
-  quoteSplitted.replace('today','tomorrow')
+ let index = quoteSplitted.indexOf('today');
+ quoteSplitted[index]= "tomorrow";
+ quoteSplitted.join(" ");
 /*
 12. Find the index of second "o" in quote. Use indexOf
 */
- 
+ console.log(quote.indexOf("o",8));
 /*
 13. Find the last index of letter "a" in quote.
 */
-
+let lastIndexOfA = quote.lastIndexOf("a")
 /*
 14. Find the second last index of letter "a" in quote.
 */
+quote.lastIndexOf("a",lastIndexOfA - 1);
 
 /*
 15. Make the quote 70 character long. If it has less characters add rest as .......
 Example: "Hello" (convert to 10 characters) => "Hello....."
 Store the output in a new variable
 */
-let quoteChart= quote.padEnd(70,".")
-console.log(quoteChart);
+let max= 70;
+let length = quote.length
+// for (let i=length ; i<=max; i++){
+//   quote = quote + ".";
+// length= quote.length
+// }
+let newQuote = quote +".".repeat(max-length);
 /*
 16. Do same as (15) but the ... should come in start. Store the output in a new variable
 */
-let startChart =quoteChart.padStart(15,".")
-console.log(startChart);
+let newStartQuote = ".".repeat(max-length)+quote;
 /*
 17. Log the repeat of "Hello World!" 10 times.
 */
@@ -107,13 +114,16 @@ quote.replace("today","tomorrow")
 /*
 19. Replace Stark to Lannister in quoteTo
 */
- to.replace('Stark','quoteTo')
- console.log(to);
+ quote.replace('Stark','quoteTo')
+ 
 /*
 20. Make the quote of length 30 and put ... at the end. (use slice)
 */
-
+let limit =quote.slice(0,30)+ "..."
 /*
 21. Find out does quote, from, to starts with "A"
 
 */
+console.log(quote.startsWith("A"));
+console.log(from.startsWith("A"));
+console.log(to.startsWith("A"));
