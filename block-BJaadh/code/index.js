@@ -25,20 +25,22 @@ console.log(strings.join(" "));
  console.log( strings.splice(0,1));
 
 // - Find all the words that contain 'is' use string method 'includes'
-strings.includes("is")
+let allIs= strings.filter((string)=>
+string.includes("is"));
 // - Find all the words that contain 'is' use string method 'indexOf'
-console.log(strings.indexOf("is"));
+let allIsAgain= strings.filter((string)=>
+string.indexOf("is")!== -1);
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
- let number =(num)=> num /3
- console.log(numbers.map(number));
+ numbers.every ((num)=> num% 3 === 0);
+ 
 // -  Sort Array from smallest to largest
-
+ [...numbers].sort((a,b)=>a-b);
 // - Remove the last word in strings
 console.log(strings.pop());
 // - Find largest number in numbers
-
+let largest =[...numbers].sort((a,b)=>a-b).pop();
 // - Find longest string in strings
-
+let longestString = [...strings].sort((a,b)=>a.length-b.length).pop();
 // - Find all the even numbers
 let evenNumber= numbers.filter(num=> num%2===0)
 console.log(evenNumber);
@@ -46,17 +48,28 @@ console.log(evenNumber);
 let oddNumber= numbers.filter(num=> num%2 !==0)
 console.log(oddNumber);
 // - Place a new word at the start of the array use (unshift)
-console.log(strings.unshift("hello")); 
+console.log(strings.unshift("New Word")); 
 // - Make a subset of numbers array [18,9,7,11]
-
+console.log(numbers.splice(3,7));
 // - Make a subset of strings array ['a','collection']
-
+strings.splice(3,5)
 // - Replace 12 & 18 with 1221 and 1881
-numbers.re
+// numbers.splice(numbers.indexOf(12),1,1221)
+numbers.map((num)=>{
+  if(num ===12){
+    return 1221;
+  }else if(num ===18){
+    return 1881
+  }else{
+    return num
+  }
+});
 // - Replace words in strings array with the length of the word
-    
+   let stringLength= strings.map((string)=>string.length);
 // - Find the sum of the length of words using above question
-
+stringLength.reduce((acc,cv)=>{
+acc=acc+cv ;
+return acc},0);
 // - Customers Array
 var customers = [
   { firstname: 'Joe', lastname: 'Blogs' },
@@ -65,19 +78,34 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-
+let filterCustomer =customers.filter((customer)=>
+customer.firstname.startsWith( 'j'))
 // - Create new array with only first name
-let firstName =[]
-for(let customer of customers){
- firstName.push(customer.firstname)
- console.log(firstName);
-}
+let firstNameCustomers= customers.map((customer)=> customer.firstname);
+// let firstName =[]
+// for(let customer of customers){
+//  firstName.push(customer.firstname)
+//  console.log(firstName);
+// }
 // - Create new array with all the full names (ex: "Joe Blogs")
-let fullName=[];
-for(let customer of customers){
-  fullName.push(customer.firstname+" "+ customer.lastname)
-  console.log(fullName);
- }
+let fullNameCustomers= customers.map((customer)=> 
+`${customer.firstname} ${customer.lastname}`);
+// let fullName=[];
+// for(let customer of customers){
+//   fullName.push(customer.firstname+" "+ customer.lastname)
+//   console.log(fullName);
+//  }
 // - Sort the array created above alphabetically
-
+[...fullNameCustomers].sort()
 // - Create a new array that contains only user who has at least one vowel in the firstname.
+let vowelCustomer = customers.filter((customer)=> {
+  if( customer.firstname.toLowerCase().includes("a")||
+  customer.firstname.toLowerCase().includes("e") ||
+  customer.firstname.toLowerCase().includes("i")||
+  customer.firstname.toLowerCase().includes("o")||
+  customer.firstname.toLowerCase().includes("u")
+  ) { return true ;
+}else{
+  return false;
+}
+});
