@@ -14,25 +14,42 @@ let persons = [
 ];
 
 // Create an array peopleName and store value of sex key from persons array
-
+let peopleName =[];
+for(let person of persons){
+  peopleName.push(person.name)
+}
 // Create an array peopleGrade and store the value of grade key from persons array
-
+let peopleGrade=[];
+for(let person of persons){
+  peopleGrade.push(person.grade)
+}
 // Create an array peopleSex and store the value of sex key from persons array
-
+let peopleSex =[];
+for(let person of persons){
+  peopleSex.push(person.sex)
+}
 // Log the filtered named of people in peopleName that starts with 'J' or 'P'
-
+//  let filteredName= peopleName.filter((personName)=>{
+//     if(personName===personName.name.startsWith("j")){
+//       return personName.name
+//     }
+//   });
+  
 // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
 
 // Log all the filtered male ('M') in persons array
-
+let malePersons = peopleSex.filter((num)=>num==="M")
+console.log(malePersons);
 // Log all the filtered female ('F') in persons array
-
+let femalePersons = peopleSex.filter((num)=>num !=="M")
+console.log(femalePersons);
 // Log all the filtered female ('F') whose name starts with 'C' or 'J' in persons array
 
 // Log all the even numbers from peopleGrade array
-
+let evenNumber = peopleGrade.filter((num)=> num% 2===0);
+console.log(evenNumber);
 // Find the first name that starts with 'J' in persons array and log the object
-
+// let nameStartWithJ= peopleName.filter(()=> peopleNameJ===)
 // Find the first name that starts with 'P' in persons array and log the object
 
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
@@ -42,9 +59,13 @@ let persons = [
 // Filter all the male from persons array and store in malePersons array
 
 // Find the sum of all grades and store in gradeTotal
-
+let gradeTotal = peopleGrade.reduce((acc,cv)=>{
+  return acc+cv
+},0)
 // Find the average grade
-
+let gradeAvg = peopleGrade.reduce((acc,cv)=>{
+  return acc+cv
+},0)/peopleGrade.length
 // Find the average grade of male
 
 // Find the average grade of female
@@ -58,11 +79,15 @@ let persons = [
 // Find the highest grade for people whose name starts with 'J' or 'P'
 
 // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
-
+let peopleGradeSort= peopleGrade.sort((a,b)=> a-b)
+console.log(peopleGradeSort);
 // Sort the peopleGrade in descending order
-
+let peopleGradeDescending= peopleGrade.sort((a,b)=> b-a)
+console.log(peopleGradeDescending);
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
-
+let descendingMutate=[...peopleGrade].sort((a,b)=> a-b)
+console.log(peopleGradeSort);
 // Sort the array peopelName in ascending `ABCD..Za....z`
-
+let ascendingPeopleName=peopleName.sort((A,B)=> A-B)
+console.log(ascendingPeopleName);
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
