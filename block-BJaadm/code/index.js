@@ -80,9 +80,12 @@ femaleGrade.reduce((acc,cv)=>{
 // Find the highest grade in female
 [...femaleGrade].sort((a,b)=>a-b).pop();
 // Find the highest grade for people whose name starts with 'J' or 'P'
-let m=nameWithJorP=persons.filter{
-  
-}
+let nameWithJorP=persons.filter((person)=>
+person.name.startsWith("j")||person.name.startsWith("P")
+)
+let gradeNameWithJorP=nameWithJorP.map((person)=>
+person.grade);
+[...gradeNameWithJorP].sort((a,b)=> a-b).pop()
 // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
 let peopleGradeSort= peopleGrade.sort((a,b)=> a-b)
 console.log(peopleGradeSort);
@@ -91,8 +94,8 @@ let peopleGradeDescending= peopleGrade.sort((a,b)=> b-a)
 console.log(peopleGradeDescending);
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
 let descendingMutate=[...peopleGrade].sort((a,b)=> a-b)
-console.log(peopleGradeSort);
+console.log(descendingMutate);
 // Sort the array peopelName in ascending `ABCD..Za....z`
-let ascendingPeopleName=peopleName.sort((A,B)=> A-B)
-console.log(ascendingPeopleName);
+peopleName.sort();
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
+[...peopleName].Sort();
