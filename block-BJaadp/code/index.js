@@ -67,7 +67,15 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
-
+let fruitObj= fruitBasket.reduce((acc,cv)=>{
+  if (acc[cv]){
+    acc[cv]= acc[cv]+1;
+  
+  }else{
+    acc[cv]=1;
+  }
+  return acc;
+},{})
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -77,6 +85,10 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+let fruitArray = Object.keys(fruitObj).reduce((acc,cv)=>{
+  acc =acc.concat([[cv,fruitObj[cv]]]);
+  return acc;
+},[])
 
 const data = [
   [1, 2, 3],
@@ -86,7 +98,11 @@ const data = [
 ];
 
 // Using reduce flat data array
-let dataFlat= data.flat(Infinity)
+// let dataFlat= data.flat(Infinity)
+data.reduce((acc,cv)=>{
+  acc= acc.concat(cv);
+  return acc;
+},[])
 
 const dataTwo = [
   [1, 2, 3],
@@ -96,7 +112,10 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
-
+dataTwo.reduce((acc,cv)=>{
+  acc= acc.concat(cv.flat(Infinity));
+  return acc;
+},[])
 /*
 
 Create these functions which accepts a number value and returns a number value:
@@ -106,6 +125,21 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+function increment(num){
+  return num + 1;
+}
+function increment(num){
+  return num * 2;
+}
+function increment(num){
+  return num - 1;
+}
+function increment(num){
+  return num * 3;
+}
+function increment(num){
+  return math.round (num/2);
+}
 
 let pipeline = [
   increment,
@@ -131,19 +165,26 @@ EXAMPLE:
 
   ...
 */
-
-// let pipeline2 = [
-//   increment,
-//   half,
-//   double,
-//   decrement,
-//   decrement,
-//   triple,
-//   double,
-//   triple,
-//   half,
-//   increment,
-//   triple,
-// ];
+ pipeline.reduce((acc,cv)=>{
+   acc = cv(acc);
+   return acc;
+ },3)
+let pipeline2 = [
+  increment,
+  half,
+  double,
+  decrement,
+  decrement,
+  triple,
+  double,
+  triple,
+  half,
+  increment,
+  triple,
+];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline2.reduce((acc,cv)=>{
+  acc = cv(acc);
+  return acc;
+},3)
