@@ -16,19 +16,35 @@ let persons = [
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
+ let peopleGrade = persons.map ((person)=>person.grade)
+ 
+let averageGrade= peopleGrade.reduce((acc,cv)=>{
+return acc+cv
+ },0)/peopleGrade.length
 
 // Find the average grade of male
-
+let maleGrade=persons.filter((p)=>p.sex ==="M");
+maleGrade.reduce((acc,cv)=>{
+  return acc+cv.grade;
+},0)/maleGrade.length
 // Find the average grade of female
-
+let femaleGrade=persons.filter((p)=>p.sex ==="F");
+femaleGrade.reduce((acc,cv)=>{
+  return acc+cv.grade;
+},0)/femaleGrade.length;
 // Find the highest grade
-
+[...peopleGrade].sort((a,b)=>a-b).pop();
 // Find the highest grade in male
-
+[...maleGrade].sort((a,b)=>a-b).pop();
 // Find the highest grade in female
-
+[...femaleGrade].sort((a,b)=>a-b).pop();
 // Find the highest grade for people whose name starts with 'J' or 'P'
-
+let nameWithJorP=persons.filter((person)=>
+person.name.startsWith("j")||person.name.startsWith("P")
+)
+let gradeNameWithJorP=nameWithJorP.map((person)=>
+person.grade);
+[...gradeNameWithJorP].sort((a,b)=> a-b).pop()
 const fruitBasket = [
   'banana',
   'cherry',
@@ -70,6 +86,7 @@ const data = [
 ];
 
 // Using reduce flat data array
+let dataFlat= data.flat(Infinity)
 
 const dataTwo = [
   [1, 2, 3],
@@ -115,18 +132,18 @@ EXAMPLE:
   ...
 */
 
-let pipeline2 = [
-  increment,
-  half,
-  double,
-  decrement,
-  decrement,
-  triple,
-  double,
-  triple,
-  half,
-  increment,
-  triple,
-];
+// let pipeline2 = [
+//   increment,
+//   half,
+//   double,
+//   decrement,
+//   decrement,
+//   triple,
+//   double,
+//   triple,
+//   half,
+//   increment,
+//   triple,
+// ];
 
 // Find the output using pipeline2 the initial value if 8
